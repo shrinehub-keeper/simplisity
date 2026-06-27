@@ -1,13 +1,10 @@
-# mpkg(1)
+# simplisity(1)
 
 Managing packages from a *shell* script - but its Mobius 🙃
 
 ## DESCRIPTION
 
 *mPKG* is a **lightweight** *package manager* written in pure **Shell**.
-
-As a consequence, it does **not** require any extra **exotic** interpreter such
-as *python*, *ruby*, *lua*...
 
 *mPKG* uses standard utilities such as `sh`, `grep`, `tar`, `wget` and `awk`
 that are shipped in any **POSIX** system.
@@ -25,41 +22,44 @@ The project is composed of *three* scripts:
 ### INSTALLATION STEPS
 
 *mPKG* is **simple**.
+*simplisity* is **simpler**.
 
 The installation step can be *summed up* in *3 steps*:
 
 1. **Resolving** all dependencies
-1. **Fetching** archive
-1. **Unpacking** it to root
+2. **Fetching** build scripts
+3. **Compiling** and installing 
 
 ... **nothing** more!
 
-## INSPIRED BY DEBIAN
+## ORIGINALLY INSPIRED BY DEBIAN
+mpkg is *mostly* inspired by **Debian** packages.
+simplisity is inspired by OpenBSD's ports system.
 
-The implementation is *mostly* inspired by **Debian** packages.
+*mPKG* combined both **APT** and **DPKG** features; as **Opkg** does.
 
-*mPKG* combines both **APT** and **DPKG** features; as **Opkg** does.
-
-It follows and remains as close as it is *relevant* to the **behavior** defined
+It followed and remained as close as it was *relevant* to the **behavior** defined
 by the [Debian policies].
 
-*mPKG* runs same `preinst/postinst` and `prerm/postrm` maintainer scripts.
+*mPKG* ran same `preinst/postinst` and `prerm/postrm` maintainer scripts.
 
 ## BUT NOT DEBIAN COMPATIBLE
 
 But *mPKG* is **different**.
+And so is *simplisity*.
 
-It is designed for **embedded systems** which are **limited** in term of
+It was designed for **embedded systems** which are **limited** in term of
 *space*, *memory*, and *CPU*.
+Simplisity, however, is designed specifically for MobiusOS, s Linux distribution that is private for now/
 
 *mPKG* does **not have staging** directory and *unpacks* directly archives to
 the *root* file system.
-
 Therefore, it **does not handle** complicated *maintainers* scripts *use-cases*
 to *rewind* for error handling.
 
 *mPKG* must **remain simple** and **relies** on the *maintainers' scripts* of
 the distribution.
+well, I'm the only guy maintaining this, so I need actual contributers, I'm way too busy to make ports recipies every day.
 
 ### CONTROL FIELDS SET
 
@@ -82,6 +82,7 @@ Here is an example of a what a *control* file looks like:
 	Package: meta
 	Version: 2017.11
 	Depends: busybox mpkg
+This whole section is irrelavent to simplisity.
 
 ### ARCHIVE FORMAT
 
@@ -99,7 +100,7 @@ A *minimal* package consists of a single file `/var/lib/mpkg/info/pn/control`
 containing a single line, where *pn* is the name of the package.
 
 	Package: pn
-
+also irrelavent to simplisity.
 ### DATABASE
 
 There is **no single file** database.
@@ -118,48 +119,39 @@ limited to the concerned package and not the whole database.
 *mPKG* provides the *3* main operations of a classical *package manager*:
 
 1. `install`
-1. `remove`
-1. `upgrade`
+2. `remove`
+3. `upgrade`
 
 ## TODO
 
 *mPKG* is still in development.
+well, not until it got archived.
+simplisity is also still in develepment, and needs more contributors.
 
-### UPCOMING FEATURES
+### WILL DO
 
-In the **TODO** list:
-
-* Manage `Conffiles` and add `--purge` option when package is *removed*
-* Extra features such as `whatprovides/whatdepends` package or `find/search`
-for files are helpful
-* Index *export* from *control* format to *HTML* or *JSON*
-
-### WONT DO
-
-Here are some features that are not *implemented* and **WILL NOT BE**:
-
-* *version constraints* such as `Depends: busybox (>= 1.23.1)`
-* `Recommends` and `Suggests` relationships; `Depends` is enough!
-* `Provides`, `Breaks`, and `Conflicts`; keep relationship *simple*
-* the *architecture* is *not* essential
+- prebuilt (for only *some* packages)
 
 ## INSTALL
 
 *mPKG* is **easy** to install.
+*simplisity* is simpler.
 
 Because it is a *shell* script, it does not need to be compiled.
 
 Download [mpkg] and copy it somewhere in your `$PATH`.
 
-	$ sudo su
+	$ sudo -i # or sudo su
 	# cd /usr/sbin
-	# wget https://raw.githubusercontent.com/gazoo74/mpkg/master/bin/mpkg
-	# chmod +x mpkg
+	# wget https://raw.githubusercontent.com/shrinehub-keeper/simplisity/master/bin/simplisity
+	# chmod +x simplisity
 
 *mPKG* needs at least a *repository feed* in `/etc/mpkg/repo.d/` directory.
 
 	# mkdir -p /etc/mpkg/repo.d/
 	# echo "http://tgz.me/Index" >/etc/mpkg/repo.d/me
+
+*simplisity* does not. 
 
 ## AUTHOR(s)
 
