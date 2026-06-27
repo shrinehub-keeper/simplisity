@@ -1,6 +1,6 @@
 # mpkg(1)
 
-Managing packages from a *shell* script
+Managing packages from a *shell* script - but its Mobius 🙃
 
 ## DESCRIPTION
 
