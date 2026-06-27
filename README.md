@@ -161,16 +161,18 @@ Download [mpkg] and copy it somewhere in your `$PATH`.
 	# mkdir -p /etc/mpkg/repo.d/
 	# echo "http://tgz.me/Index" >/etc/mpkg/repo.d/me
 
-## AUTHOR
+## AUTHOR(s)
 
-Written by Gaël PORTAY *gael.portay@gmail.com*
+Originally Written by Gaël PORTAY *gael.portay@gmail.com* under the MIT License
+Forked by shrinehub-keeper *t1m3tr4veler@proton.me* under the GPLv2 License
 
 ## COPYRIGHT
 
 Copyright (c) 2015-2017 Gaël PORTAY
 
+Copyright (c) 2026 shrinehub-keeper 
 This program is free software: you can redistribute it and/or modify it under
-the terms of the MIT License.
+the terms of the GNU General Public License Version 2.
 
 [Busybox]: https://busybox.net/
 [target]: mpkg.1.adoc
